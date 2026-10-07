@@ -18,5 +18,7 @@ with open("data/ventas.json", encoding="utf-8") as f:
 ventas = pd.json_normalize(datos)
 print(ventas.head())
 
+print("\nDimension del archivo json")
 print(ventas.shape)
+print("\nTipos de datos del archivo")
 print(ventas.dtypes)
