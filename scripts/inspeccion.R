@@ -12,10 +12,19 @@
 #         - sucursal con mayor y menor venta
 #         - región con mayor venta total
 
+ventas <- read.csv("data/ventas.csv")
 
-install.packages('readr')
-library(readr)
-ventas <- read_csv("data/ventas.csv")
-head(ventas)
-dim(ventas)
 str(ventas)
+
+ventas$ticket <- ventas$ventas / ventas$clientes
+head(ventas)
+
+aggregate(ventas ~ sucursal, data = ventas, mean)
+
+sum(ventas$ventas) / sum(ventas$clientes)
+
+ventas$sucursal[which.max(ventas$ventas)]
+ventas$sucursal[which.min(ventas$ventas)]
+
+regiones <- aggregate(ventas ~ region, data = ventas, sum)
+regiones$region[which.max(regiones$ventas)]

@@ -33,5 +33,6 @@ print("\n")
 ventas_per_region = ventas.groupby("region").sum("ventas")
 ventas_per_region.head()
 
-##tarea: sacar la maxima de las regiones
-
+ventas_per_region = ventas.groupby("region")["ventas"].sum()
+region_max = ventas_per_region.idxmax()
+print("Región con mayor venta total:", region_max)
