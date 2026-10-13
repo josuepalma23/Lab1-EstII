@@ -11,3 +11,11 @@
 #         - ticket promedio (ventas totales / clientes totales)
 #         - sucursal con mayor y menor venta
 #         - región con mayor venta total
+
+
+install.packages('readr')
+library(readr)
+ventas <- read_csv("data/ventas.csv")
+head(ventas)
+dim(ventas)
+str(ventas)
